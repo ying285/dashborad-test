@@ -1,0 +1,28 @@
+.productmain {
+  display: flex;
+  padding: 1.5rem;
+
+  &_part1 {
+    margin-right: 0.5rem;
+
+    width: 70%;
+  }
+
+  &_part2 {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .productmain {
+    display: block;
+
+    &_part1 {
+      width: 100%;
+    }
+
+    &_part2 {
+      width: 100%;
+    }
+  }
+}

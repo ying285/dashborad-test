@@ -1,0 +1,16 @@
+.home {
+  &_main {
+    display: flex;
+  }
+
+  &_logo {
+    margin-bottom: 0.5rem;
+  }
+
+  &_mainpage {
+    background-color: #fff;
+
+    width: 100%;
+    margin-left: 0.5rem;
+  }
+}

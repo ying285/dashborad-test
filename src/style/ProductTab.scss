@@ -1,0 +1,27 @@
+.producttabatt {
+  p {
+    margin-bottom: 0.8rem;
+  }
+
+  &_trldata {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    p {
+      font-size: 0.5rem;
+    }
+  }
+
+  .producttabatt {
+    p {
+      margin-bottom: 1rem;
+    }
+
+    &_trldata {
+      margin-top: 3rem;
+    }
+  }
+}
