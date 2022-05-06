@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../style/Product_part1.scss";
 import ProductContent from "./ProductContent";
 import { tabActions } from "../store/tab";
@@ -9,7 +8,7 @@ import DataFetch from "../hooks/dataFetch";
 const url = "https://api-test.innoloft.com//product/6781/";
 
 const Product_part1 = () => {
-  DataFetch(url);
+  DataFetch(url, "tab");
   const dispatch = useDispatch();
   const tabActive = useSelector((state: RootState) => state.tab.tabActive);
   const data = useSelector((state: RootState) => state.tab.data);

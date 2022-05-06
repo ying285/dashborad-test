@@ -11,43 +11,51 @@ const ProductTabAtt = () => {
   const updateData = useSelector((state: RootState) => state.update.updateData);
 
   const updatedDategories = updateData?.categories;
-  const updatedDategoriesName = updatedDategories
-    ?.map((el: any) => el.name)
-    .toString();
+  const updatedDategoriesName = updatedDategories?.map((el: any) => el.name);
+
+  const updatedBusinessModel = updateData?.businessModels;
+  const updatedBusinessModelName = updatedBusinessModel?.map(
+    (el: any) => el.name
+  );
+  /////////
 
   const data = useSelector((state: RootState) => state.tab.data);
   const categories = data?.categories;
-  const categoriesName = categories?.map((el: any) => el.name).toString();
+  const categoriesName = categories?.map((el: any) => el.name);
 
-  const updatedBusinessModel = updateData?.businessModels;
-  const updatedBusinessModelName = updatedBusinessModel
-    ?.map((el: any) => el.name)
-    .toString();
+  const cate: any = localStorage.getItem("categories");
+
+  const cateArr = categoriesName.concat([categoriesName, cate]);
+  console.log(categoriesName);
+  console.log(cate);
+
+  //////
 
   const businessModel = data?.businessModels;
-  const businessModelName = businessModel?.map((el: any) => el.name).toString();
+  const businessModelName = businessModel?.map((el: any) => el.name);
+
+  const mod = localStorage.getItem("models");
+
+  const modeArr = businessModelName.concat(mod);
 
   return (
     <div className="producttabatt">
       <div>
-        {updatedDategoriesName ? (
-          <p>{updatedDategoriesName}</p>
-        ) : (
-          <p>{categoriesName}</p>
-        )}
+        {cateArr ? <p>{cateArr.join(", ")}</p> : <p>{updatedDategoriesName}</p>}
         <UpdateForm
           type={"text"}
           url={urlUpdating}
           btn={"Update Cate"}
           inputWidth={5}
           inputHeight={0.3}
+          storageValue={"categories"}
         />
       </div>
       <div>
-        {updatedBusinessModelName ? (
-          <p>{updatedBusinessModelName}</p>
+        {modeArr ? (
+          <p>{modeArr.join(", ")}</p>
         ) : (
-          <p>{businessModelName}</p>
+          <p>{updatedBusinessModelName}</p>
         )}
         <UpdateForm
           type={"text"}
@@ -55,6 +63,7 @@ const ProductTabAtt = () => {
           btn={"Update Mode"}
           inputWidth={5}
           inputHeight={0.3}
+          storageValue={"models"}
         />
       </div>
       <div className="producttabatt_trldata">

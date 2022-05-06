@@ -8,6 +8,13 @@
   }
 }
 
+.description {
+  textarea {
+    height: 10rem;
+    width: 45rem;
+  }
+}
+
 @media (max-width: 768px) {
   .description {
     p {

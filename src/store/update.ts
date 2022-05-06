@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface tabState {
   updateData: any;
-  updatedItem: string;
+  updatedItem: any;
   selectedData: any;
 }
 
 const initialState: tabState = {
   updateData: [],
-  updatedItem: "",
+  updatedItem: [],
   selectedData: [],
 };
 
@@ -20,7 +20,7 @@ const updateSlice = createSlice({
       state.updateData = action.payload;
     },
     updateDesHandler(state, action: PayloadAction<string>) {
-      state.updatedItem = action.payload;
+      state.updatedItem.push(action.payload);
     },
     selectedHandler(state, action: PayloadAction<string>) {
       state.selectedData = action.payload;

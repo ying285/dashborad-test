@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, FC, useRef } from "react";
+import React, { InputHTMLAttributes, FC } from "react";
 import Button from "./Button";
 import axios from "axios";
 import { RootState } from "../store";
@@ -12,6 +12,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   btn: string;
   inputWidth: number;
   inputHeight: number;
+  storageValue: string;
 }
 
 const UpdateForm: FC<InputProps> = ({
@@ -20,6 +21,7 @@ const UpdateForm: FC<InputProps> = ({
   btn,
   inputWidth,
   inputHeight,
+  storageValue,
 }) => {
   const dispatch = useDispatch();
 
@@ -29,6 +31,7 @@ const UpdateForm: FC<InputProps> = ({
 
   const changeHandler = (e: any) => {
     dispatch(updateActions.updateDesHandler(e.target?.value));
+    //localStorage.setItem(storageValue, e.target?.value);
   };
 
   const updateHandler = (e: React.FormEvent) => {

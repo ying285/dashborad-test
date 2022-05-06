@@ -11,11 +11,19 @@ const containerStyle = {
 function Map() {
   const data = useSelector((state: RootState) => state.tab.data);
 
-  const center = {
-    lat: Number(data?.company?.address?.latitude),
-    lng: Number(data?.company?.address?.longitude),
+  let lat = Number(data?.company?.address?.latitude);
+  let lng = Number(data?.company?.address?.longitude);
+
+  let center = {
+    lat: lat,
+    lng: lng,
   };
 
+  console.log(center);
+
+  console.log(typeof { lat: lat, lng: lng });
+  console.log(typeof center);
+  console.log(typeof { lat: 50.779729, lng: 6.100367 });
   return (
     <LoadScript googleMapsApiKey="AIzaSyAdoGWpCaAykmEMGqjX6yk_-1ICzD7YWDU">
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>

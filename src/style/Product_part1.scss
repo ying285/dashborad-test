@@ -42,12 +42,13 @@
 
   &_image {
     height: 30vh;
+    width: 35vw;
+    margin: auto;
   }
 
   &_img {
     height: 100%;
     width: 100%;
-    object-fit: fill;
   }
 
   &_info {

@@ -4,14 +4,12 @@ import "../style/NavBar.scss";
 import { ReactComponent as ReactLogo } from "../image/logo.svg";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
-import DataFetch from "../hooks/dataFetch";
+
 import { Link } from "react-router-dom";
 
-const url = "https://api-test.innoloft.com/configuration/1/";
-
 const Logo = () => {
-  DataFetch(url);
   const config = useSelector((state: RootState) => state.config.config);
+  console.log(config);
 
   return (
     <div className="logo">

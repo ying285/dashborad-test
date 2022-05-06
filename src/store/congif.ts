@@ -5,14 +5,14 @@ interface configState {
 }
 
 const initialState: configState = {
-  config: [],
+  config: null,
 };
 
 const configSlice = createSlice({
   name: "config",
   initialState,
   reducers: {
-    fetchConfig(state, action: PayloadAction<string[]>) {
+    fetchConfig(state, action: PayloadAction<{}>) {
       state.config = action.payload;
     },
   },

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import DataFetch from "../hooks/dataFetch";
+
 import { RootState } from "../store";
 import { useSelector, useDispatch } from "react-redux";
 import { tabActions } from "../store/tab";
@@ -19,7 +19,7 @@ const TrlData = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [dispatch]);
 
   const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e.target.value);
@@ -45,16 +45,17 @@ const TrlData = () => {
       });
   };
 
-  const updateData = useSelector((state: RootState) => state.update.updateData);
-  console.log(updateData);
+  // const updateData = useSelector((state: RootState) => state.update.updateData);
+  // console.log(updateData);
 
-  const updateDataItem = updateData?.map((el: any) => el.name);
+  // const updateDataItem = updateData?.map((el: any) => el.name);
+  // console.log(updateDataItem);
 
   const config = useSelector((state: RootState) => state.config.config);
   return (
     <div className="trldata">
       <form onSubmit={submitHandler} className="trldata_form">
-        <label>{updateDataItem && updateDataItem[0]}</label>
+        <label>{selectedData && selectedData}</label>
         <select name="trl" id="trl" onChange={selectHandler}>
           {trlData &&
             trlData?.map((el: any) => (

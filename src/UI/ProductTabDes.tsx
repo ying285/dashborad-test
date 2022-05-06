@@ -1,7 +1,7 @@
 import React from "react";
 import { RootState } from "../store";
-import { useSelector, useDispatch } from "react-redux";
-import "react-edit-text/dist/index.css";
+import { useSelector } from "react-redux";
+
 import UpdateForm from "../component/UpdateForm";
 import "../style/ProductTab.scss";
 
@@ -12,12 +12,14 @@ const ProductTabDes = () => {
   console.log(updateData);
 
   const updateDescription = updateData?.description;
-  const newUpdateDescription = updateDescription?.slice(158);
+  console.log(updateDescription);
+
+  const des = localStorage.getItem("des");
 
   return (
     <div className="description">
-      {newUpdateDescription ? (
-        <p>{newUpdateDescription}</p>
+      {updateDescription ? (
+        <textarea value={updateDescription}></textarea>
       ) : (
         <p>{data.description}</p>
       )}
@@ -27,6 +29,7 @@ const ProductTabDes = () => {
         btn={"Update Des"}
         inputWidth={10}
         inputHeight={0.5}
+        storageValue={"des"}
       />
     </div>
   );
