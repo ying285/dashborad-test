@@ -1,14 +1,14 @@
-import React from "react";
-import "../style/Home.scss";
-import NavBar from "../component/NavBar";
-import Logo from "../component/Logo";
+import React from 'react';
+import '../style/Home.scss';
+import NavBar from '../component/NavBar';
+// import Logo from '../component/Logo';
 
 const Home = () => {
   return (
     <div className="home">
-      <div className="home_logo">
+      {/* <div className="home_logo">
         <Logo />
-      </div>
+      </div> */}
       <div className="home_main">
         <NavBar />
 

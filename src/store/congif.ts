@@ -1,21 +1,21 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface configState {
   config: any;
 }
 
 const initialState: configState = {
-  config: null,
+  config: null
 };
 
 const configSlice = createSlice({
-  name: "config",
+  name: 'config',
   initialState,
   reducers: {
-    fetchConfig(state, action: PayloadAction<{}>) {
+    fetchConfig(state, action: PayloadAction<{} | null>) {
       state.config = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const configActions = configSlice.actions;
