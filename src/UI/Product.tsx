@@ -1,15 +1,15 @@
-import React from "react";
-import "../style/Home.scss";
-import Logo from "../component/Logo";
-import NavBar from "../component/NavBar";
-import ProductMain from "./ProductMain";
+import React from 'react';
+import '../style/Home.scss';
+// import Logo from "../component/Logo";
+import NavBar from '../component/NavBar';
+import ProductMain from './ProductMain';
 
 const Product = () => {
   return (
     <div className="home">
-      <div className="home_logo">
+      {/* <div className="home_logo">
         <Logo />
-      </div>
+      </div> */}
       <div className="home_main">
         <NavBar />
 

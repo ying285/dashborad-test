@@ -6,6 +6,7 @@ import './App.css';
 import DataFetch from './hooks/dataFetch';
 import { configActions } from './store/congif';
 import { useDispatch } from 'react-redux';
+import Logo from './component/Logo';
 const url = `https://api-test.innoloft.com/configuration/${process.env.REACT_APP_APP_ID}/`;
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="home_logo">
+        <Logo />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Product />} />
