@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface tabState {
   tabActive: string;
@@ -7,27 +7,27 @@ interface tabState {
 }
 
 const initialState: tabState = {
-  tabActive: "tabDes",
+  tabActive: 'tabDes',
   data: [],
-  trlData: [],
+  trlData: []
 };
 
 const tabSlice = createSlice({
-  name: "tab",
+  name: 'tab',
   initialState,
   reducers: {
     changeTab(state, action: PayloadAction<string>) {
       state.tabActive = action.payload;
     },
 
-    fetchData(state, action: PayloadAction<string>) {
+    fetchData(state, action: PayloadAction<{} | null>) {
       state.data = action.payload;
     },
 
     fetchTrl(state, action: PayloadAction<string>) {
       state.trlData = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const tabActions = tabSlice.actions;

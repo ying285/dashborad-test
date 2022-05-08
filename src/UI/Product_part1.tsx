@@ -1,25 +1,36 @@
-import "../style/Product_part1.scss";
-import ProductContent from "./ProductContent";
-import { tabActions } from "../store/tab";
-import { RootState } from "../store";
-import { useDispatch, useSelector } from "react-redux";
-import DataFetch from "../hooks/dataFetch";
+import '../style/Product_part1.scss';
+import ProductContent from './ProductContent';
+import { tabActions } from '../store/tab';
+import { RootState } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import DataFetch from '../hooks/dataFetch';
 
-const url = "https://api-test.innoloft.com//product/6781/";
+const url = 'https://api-test.innoloft.com//product/6781/';
 
 const Product_part1 = () => {
-  DataFetch(url, "tab");
   const dispatch = useDispatch();
+  const { data: fetchedData, status, error } = DataFetch(url);
+
+  if (status === 'fetched') {
+    dispatch(tabActions.fetchData(fetchedData));
+  }
+
   const tabActive = useSelector((state: RootState) => state.tab.tabActive);
   const data = useSelector((state: RootState) => state.tab.data);
 
   const tabHandlerDes = () => {
-    dispatch(tabActions.changeTab("tabDes"));
+    dispatch(tabActions.changeTab('tabDes'));
   };
 
   const tabHandlerAtt = () => {
-    dispatch(tabActions.changeTab("tabAtt"));
+    dispatch(tabActions.changeTab('tabAtt'));
   };
+
+  if (status === 'fetching') return <div>Loading...</div>;
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="productpart1">
@@ -35,13 +46,13 @@ const Product_part1 = () => {
       <div className="productpart1_tablayout">
         <ul className="productpart1_tab">
           <li
-            className={tabActive === "tabDes" ? "active" : ""}
+            className={tabActive === 'tabDes' ? 'active' : ''}
             onClick={tabHandlerDes}
           >
             Description
           </li>
           <li
-            className={tabActive === "tabAtt" ? "active" : ""}
+            className={tabActive === 'tabAtt' ? 'active' : ''}
             onClick={tabHandlerAtt}
           >
             Attributes
